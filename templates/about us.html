@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Andrumeda</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/about_us.css') }}">
+</head>
+<body>
+{% extends "base.html" %}
+{% block title %}About Us{% endblock %}
+{% block content %}
+<div class="image-wrapper">
+    <img src="{{ url_for('static', filename='Image/Drums/aboutus.jpg') }}" alt="About Us">
+    <h1 class="overlay-text">ABOUT US</h1>
+</div>
+<div class="container-aboutus">
+    <h1>Welcome to Andrumeda</h1>
+    <hr>
+    <h1>your cosmic destination for all things drums!</h1>
+    <p>Andrumeda was founded by passionate drummer and percussion maestro, Liam Harrison. With over 30 years of drumming experience, Liam has played in everything from local jazz bands to international rock tours. His deep love for rhythm and his dedication to the drumming community inspired him to create Andrumeda, a haven for drummers of all levels.</p>
+    <h1>Our Misson</h1>
+    <p>At Andrumeda, our mission is to provide drummers with the best tools to express their creativity and drive their musical exploration. Whether you are a beginner just starting to find your beat or a seasoned professional looking for that perfect sound, Andrumeda is here to support you every step of the way. We believe that drumming is more than just playing an instrument – it's about connecting with a deeper rhythm that transcends boundaries and brings people together.</p>
+    <p>Why Choose Us?</p>
+    <ol>
+        <li><strong>Quality Products:</strong> We offer a curated selection of drums, cymbals, hardware, and accessories from top brands around the world. Every product we sell is tested and approved by our team of experts to ensure it meets our high standards of quality and performance.</li>
+        <li><strong>Expert Advice:</strong> Our team of experienced drummers and music professionals is always here to help you make informed decisions about your purchases. Whether you need advice on choosing your first drum kit or tips on maintaining your gear, we’ve got you covered.</li>
+        <li><strong>Community Focused:</strong> Andrumeda is more than just an online store – it's a community. We host virtual workshops, live Q&A sessions, and exclusive events to bring drummers together and share our collective knowledge and passion for music.</li>
+        <li><strong>Fast & Reliable Shipping:</strong> We know how important it is to get your gear quickly and safely. That’s why we offer fast and reliable shipping options, ensuring your order arrives in perfect condition and on time.</li>
+    </ol>
+    <p>We're thrilled to have you as part of the Andrumeda family. Explore our wide range of products, connect with fellow drummers, and let your rhythmic journey take flight. Together, we’ll make music that echoes through the cosmos.</p>
+    <h1>Feel the beat. Embrace the rhythm. Welcome to Andrumeda.</>
+</div>
+{% endblock %}
+</body>
+</html>

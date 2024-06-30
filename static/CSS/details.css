@@ -1,0 +1,143 @@
+.store-anchor {
+    width: 30%;
+    height: 25px;
+    color: lightcoral;
+    border-color: lightcoral;
+    border: 1px solid;
+    transition: 200ms ease-in-out;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 5%;
+}
+  
+.store-anchor:hover {
+    background-color: rgb(241, 104, 104);
+    color: whitesmoke;
+}
+
+.details-container{
+    display: flex;
+    justify-content: center;
+}
+
+.details-product{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.details-product img{
+    top: 2%;
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.details-text{
+    left: 1%;
+    position: absolute;
+    padding: 20px 30px;
+    border-radius: 10px;
+    max-width: 20%;
+    margin: 50px auto; 
+}
+
+.details-text p{
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.details-text h2{
+    font-weight: 500;
+}
+
+.details-text h1{
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;;
+}
+
+.container-row{
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+}
+
+.store-anchor-reveresed{
+    width: 30%;
+    height: 25px;
+    color: lightcoral;
+    border-color: lightcoral;
+    border: 1px solid;
+    transition: 200ms ease-in-out;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 5%;
+}
+
+.store-anchor-reveresed:hover{
+    background-color: rgb(241, 104, 104);
+    color: whitesmoke;
+}
+
+.buttons {
+    display: flex;
+}
+
+.learn-more-button, .find-dealer-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 10px;
+    color: white;
+    border: 1px #8c8c5e;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.learn-more-button{
+    background-color:  #8c8c5e;
+    color: white;
+    border: 2px #8c8c5e solid;
+}
+
+.learn-more-button:hover{
+    background-color: #ffffff;
+    color: #8c8c5e;
+}
+
+.find-dealer-button {
+    background-color: #ffffff;
+    color: #8c8c5e;
+    border: 2px solid #8c8c5e;
+}
+
+.find-dealer-button:hover {
+    background-color: #8c8c5e;
+    color: #ffffff;}
+
+.delete-button{
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 10px;
+    color: darkred;
+    border: 1px darkred solid;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-items: center;
+}
+
+.delete-button:hover{
+    background-color: darkred;
+    color: white;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Product</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='CSS/add_product.css') }}">
+</head>
+<body>
+  
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+  <form method="POST" class="form-product" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+
+    {{ form.name(class_="", placeholder="Product Name", required=True) }}
+    
+    {{ form.url(class_="", placeholder="Product URL") }}
+    
+    {{ form.file(class_="form-content", placeholder="Product File", required=True) }}
+    
+    {{ form.folder(placeholder='Product Brand')}}
+
+    {{form.description(placeholder="Product Description")}}
+
+    {{ form.price(class_="", placeholder="Product Price") }}
+    
+    {{ form.submit(class_="form-product-button") }}
+  </form>
+</div>
+{% endblock %}
+  
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    <ul>
+    {% for category, message in messages %}
+        <li class="flash-{{ category }}">{{ message }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+{% endwith %}
+
+</body>
+</html>

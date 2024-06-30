@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/purchase.css') }}">
+</head>
+<body>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    <ul>
+    {% for category, message in messages %}
+        <li class="flash-{{ category }}">{{ message }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+{% endwith %}
+
+    {% extends 'base.html' %}
+    {% block content %}
+    <div class="purchase-container">
+        <img src="{{ url_for('static', filename='Image/' ~ product.folder ~ '/' ~ product.file) }}" alt="{{ product.name }}">
+        <div class="product-detail">
+            <h1>{{ product.name }}</h1>
+            <p>{{ product.description }}</p>
+            <p>Price: ${{ product.price }}</p>
+            <form method="POST" action="{{ url_for('purchase', id=product.id) }}">
+                {{ form.hidden_tag() }}
+                <div>
+                     {{ form.full_name(size=20, placeholder="Full Name") }}
+                </div>
+                <div>
+                     {{ form.email(size=20, placeholder="Email") }}
+                </div>
+                <div>
+                     {{ form.country(size=20, placeholder="Country") }}
+                </div>
+                <div>
+                    {{ form.city(size=20, placeholder="City") }}
+                </div>
+                <div>
+                     {{ form.address(size=20, placeholder="Address") }}
+                </div>
+                <div>
+                     {{ form.zip_code(size=20, placeholder="ZIP Code") }}
+                </div>
+                <div>
+                     {{ form.card_cvc(size=20, placeholder="Card CVC") }}
+                </div>
+                {{ form.submit(class_="product-button",placeholder="Submit") }}
+            </form>
+        </div>
+    </div>
+    
+
+
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Orders</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/orders.css') }}">
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <div class="image-wrapper">
+        <img src="{{ url_for('static', filename='Image/Drums/aboutus.jpg') }}" alt="About Us">
+        <h1 class="overlay-text">YOUR ORDERS</h1>
+    </div>
+        {% for chunk in product_chunks %}
+        <div class="store-container">
+            {% for product in chunk %}
+            <div class="product-item" data-overlay="{{ product.name }}">
+                <img src="{{ url_for('static', filename='Image/' ~ product.folder ~ '/' ~ product.file) }}" alt="{{ product.name }}">
+                <div class="product-text">
+                    <p>{{ product.name }}</p>
+                    <p>${{ product.price }} USD</p>
+                    <p>{{ product.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    {% endblock %}
+</body>
+</html>

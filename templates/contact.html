@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/contact.css') }}">
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <div class="container">
+        <div class="image-wrapper">
+            <img src="/static/Image/Drums/contactpage.jpg" alt="Drums">
+            <h1 class="overlay-text">CONTACT</h1>
+        </div>
+    </div>
+    <div class="container-contact">
+        <form method="POST"  enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <div class="container-input">
+                {{ form.name( placeholder="Username",class_="form-control", required=True)}}
+                {{form.number(placeholder="Phone number",class_="form-control", required=True)}}
+            </div>
+            <div class="container-input">
+                {{form.mail(placeholder="Mail",class_="form-control", required=True)}}
+                {{form.country(placeholder="Country",class_="form-control", required=True)}}
+            </div>
+            <div class="container-input">
+                {{form.city(placeholder="City/Region",class_="form-control", required=True)}}
+                {{form.subject(placeholder="Subject",class_="form-control", required=True)}}
+            </div>
+            {{form.text(placeholder="Your Message",class_="form-control", required=True)}}        
+            {{ form.submit(class_="contact-button", placeholder="Submit") }}
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,42 @@
+.pearl-container h1 {
+    display: flex;
+    justify-content: center;
+    animation: fade-in 600ms ease-in-out;
+    color: black;
+  }
+  
+  .store-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    animation: slide-down 800ms;
+    margin-top: 5%;
+  }
+  
+  .product-item {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    text-align: center;
+  }
+  
+  .product-item:hover {
+    transform: translateY(-10px);
+  }
+  
+  .product-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-bottom: 1px solid #ddd;
+    transition: transform 0.3s ease;
+  }
+  
+  .product-item:hover img {
+    transform: scale(1.05);
+    cursor: pointer;
+  }

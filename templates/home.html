@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='CSS/home.css') }}">
+</head>
+<body>
+  
+
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% set products = [
+  {'image': 'Image/Drums/midtown.jpg', 'title': 'Drums', 'description':'Explore The Desired Sound', 'link':"/category/1"},
+  {'image': 'Image/sticks/vicfirth.webp', 'title': 'Drum Sticks', 'description':'Find The Perfect Pair', 'link':"/category/2"},
+] %}
+
+{% block content %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    <ul>
+    {% for category, message in messages %}
+        <li class="flash-{{ category }}">{{ message }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+{% endwith %}
+
+<section aria-label="Photos">
+    <div class="carousel" data-carousel>
+      <button class="carousel-button prev" data-carousel-button="prev">
+        &#8592;
+    </button>
+    <button class="carousel-button next" data-carousel-button="next">
+        &#8594;
+    </button>
+
+      <ul data-slides>
+
+        <li class="slide">
+            <img src="{{ url_for('static', filename='Image/Drummers/dominichoward.jpg') }}" alt="Dominic_Howard_Image" />
+            <div class="overlay-text">
+              <h2>Dominic Howard</h2>
+              <p>Drummer for the band MUSE.</p>
+            </div>
+        </li>
+
+        <li class="slide">
+            <img src="{{ url_for('static', filename='Image/Drummers/chadsmith_0.webp') }}" alt="Chad_Smith_Image" />
+            <div class="overlay-text">
+                <h2>Chad Smith</h2>
+                <p>Drummer for the band RHCP.</p>
+            </div>
+        </li>
+
+        <li class="slide">
+            <img src="{{ url_for('static', filename='Image/Drummers/marioduplantier.jpg') }}" alt="Mario_Duplantier_Image" />
+            <div class="overlay-text">
+                <h2>Mario Duplantier</h2>
+                <p>Drummer for the French Metal band Gojira.</p>
+            </div>
+        </li>
+
+        <li class="slide">
+            <img src="{{ url_for('static', filename='Image/Drummers/tomashaake_1.jpg') }}" alt="Tomas_Haake_Image" />
+            <div class="overlay-text">
+                <h2>Tomas Haake</h2>
+                <p>Drummer for the Swedish Heavy Metal band Meshuggah.</p>
+            </div>
+        </li>
+
+        <li class="slide">
+            <img src="{{ url_for('static', filename='Image/Drummers/therev.jpg') }}" alt="Jimmy_Sullivan_Image" />
+            <div class="overlay-text">
+                <h2>Jimmy Sullivan</h2>
+                <p>Drummer for the American Heavy Metal band Avenged Sevenfold.</p>
+            </div>
+        </li>
+
+        <li class="slide" data-active>
+          <img src="{{ url_for('static', filename='Image/Drummers/danny.jpg') }}" alt="Danny_Carey_Image" />
+            <div class="overlay-text">
+                <h2>Danny Carey</h2>
+                <p>Drummer for The Prog Metal Band TOOL.</p>
+            </div>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+<div class="container-row">
+  {% for product in products %}
+  <div class="container-column-description">
+      <img src="{{ url_for('static', filename=product.image) }}" alt="{{ product.title }}">
+      <h2>{{ product.title }}</h2>
+      <p>{{ product.description }}</p>
+      <a href="{{product.link}}">Learn More</a>
+  </div>
+  {% endfor %}
+</div>
+
+
+
+  <div class="Space-maker"></div>
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/store.css') }}">
+</head>
+<body>
+    
+{% extends "base.html" %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    <ul>
+    {% for category, message in messages %}
+        <li class="flash-{{ category }}">{{ message }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+{% endwith %}
+<div class="pearl-container">
+    <div class="">
+        <img src="{{ url_for('static', filename='Image/Drums/Pearl_Masterworks_Big.webp') }}" alt="Pear_Reference_Drum" width="100%" height="100%">
+        <p class="overlay-text"> Drums</p>
+    </div>
+    {% for chunk in product_chunks %}
+    <div class="store-container">
+        {% for product in chunk %}
+        <div class="product-item" data-overlay="{{ product.name }}">
+            <a href="{{ url_for('detail', id=product.id) }}"><img src="{{ url_for('static', filename='Image/' ~ product.folder ~ '/' ~ product.file) }}" alt="{{ product.name }}"></a>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+</body>
+</html>
